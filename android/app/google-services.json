@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "600437424399",
+    "firebase_url": "https://jumbo-c023a.firebaseio.com",
+    "project_id": "jumbo-c023a",
+    "storage_bucket": "jumbo-c023a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600437424399:android:04371fd94acfae746c3e7a",
+        "android_client_info": {
+          "package_name": "com.hasancaktar.jumbo_crm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600437424399-br32eddt3o42np1378110drbm90hpbbi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7p8TQguI3qH0YwJHNe6EXhQ_Z7TYcRow"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "600437424399-br32eddt3o42np1378110drbm90hpbbi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
