@@ -155,10 +155,18 @@ class _KayitState extends State<Kayit> {
                                           hintStyle:
                                               TextStyle(color: Colors.white38),
                                           focusColor: Colors.white),
-                                      validator: (value) => EmailValidator
-                                              .validate(value)
-                                          ? 'Lütfen geçerli bir mail adresi girin.'
-                                          : null),
+                                      validator: (value) {
+                                        if(value==null){
+                                          return "Lütfen geçerli bir mail girin";
+
+                                        }else
+                                          {
+                                            return null;
+                                          }
+                                      }
+
+
+                                      ),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.only(
@@ -313,7 +321,6 @@ class _KayitState extends State<Kayit> {
           isLoading = false;
           _showScaffold("Bu mail zaten kullanılıyor!");
         });
-        print('The account already exists for that email.');
       }
     } catch (e) {
       print(e);
@@ -342,7 +349,10 @@ class _KayitState extends State<Kayit> {
             new FlatButton(
               child: new Text("Tamam"),
               onPressed: () {
-                setState(() {});
+                setState(() {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      '/', (Route<dynamic> route) => false);
+                });
               },
             ),
           ],

@@ -27,6 +27,8 @@ class ApiConstants {
       "http://crm.essentebilisim.com/api/demolarbyprojeid/338";
   static const String SEKTORBAZLIDEMO =
       "http://crm.essentebilisim.com/api/demohavuzu/2";
+  static const String KULLANICIYONETIMI =
+      "http://crm.essentebilisim.com/api/users";
 
 
   static const String TOKEN_VALUE =

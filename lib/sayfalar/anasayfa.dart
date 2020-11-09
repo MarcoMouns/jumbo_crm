@@ -48,8 +48,8 @@ class _AnasayfaState extends State<Anasayfa> {
                           borderRadius: BorderRadius.circular(25)),
                       color: Colors.white,
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Giris()));
+                        Navigator.pushNamed(context,
+                            '/giris');
                       },
                     ),
                   ),
@@ -65,8 +65,8 @@ class _AnasayfaState extends State<Anasayfa> {
                           color: Colors.white),
                     ),
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Kayit()));
+                      Navigator.pushNamed(context,
+                          '/uyeol');
                     },
                   ),
                 ),

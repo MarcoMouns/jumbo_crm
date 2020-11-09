@@ -1,7 +1,6 @@
 // To parse this JSON data, do
 //
 //     final dataModeHostingler = dataModeHostinglerFromJson(jsonString);
-
 import 'dart:convert';
 
 DataModelHostingler dataModeHostinglerFromJson(String str) => DataModelHostingler.fromJson(json.decode(str));

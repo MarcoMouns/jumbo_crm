@@ -38,7 +38,7 @@ class _OnaylananMusteriState extends State<OnaylananMusteri> {
           if (snapshot.hasData) {
             return ListView.builder(
                 itemCount: snapshot.data.data.length,
-                shrinkWrap: false,
+                shrinkWrap: true,
                 scrollDirection: Axis.vertical,
                 itemBuilder: (context, index) {
                   final _data = snapshot.data.data[index];
