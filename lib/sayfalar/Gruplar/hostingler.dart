@@ -30,7 +30,7 @@ class _HostingState extends State<Hosting> {
       key: _scaffoldKey,
       backgroundColor: Colors.cyanAccent,
       appBar: AppBar(
-        title: Text("Anasayfa"),
+        title: Text("Hostingler"),
         actions: [
           PopupMenuButton<String>(
             onSelected: handleClick,
@@ -52,7 +52,7 @@ class _HostingState extends State<Hosting> {
               children: [
                 Card(
                   child: ListTile(
-                    title: Text("Onaylanan Müşteriler"),
+                    title: Text("Hostingler"),
                     onTap: () {
                       Navigator.push(
                           context,
@@ -63,7 +63,7 @@ class _HostingState extends State<Hosting> {
                 ),
                 Card(
                   child: ListTile(
-                    title: Text("Onaylanmayan Müşteriler"),
+                    title: Text("Süreli Hostingler"),
                     onTap: () {
                       Navigator.push(
                           context,

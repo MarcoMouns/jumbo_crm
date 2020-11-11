@@ -54,7 +54,8 @@ class _KayitState extends State<Kayit> {
                                       "assets/images/logokayit.png"),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 90.0,bottom: 10),
+                                  padding: const EdgeInsets.only(
+                                      top: 90.0, bottom: 10),
                                   child: Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
@@ -131,14 +132,25 @@ class _KayitState extends State<Kayit> {
                                     ],
                                   ),
                                 ),
-                                Form(
-                                  key: _formKey1,
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                    top: 10.0,
+                                  ),
                                   child: TextFormField(
                                       controller: _mailController,
                                       keyboardType: TextInputType.emailAddress,
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 18),
                                       decoration: InputDecoration(
+                                          border: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Colors.white70),
+                                              borderRadius:
+                                                  BorderRadius.circular(25)),
+                                          suffixIcon: Icon(
+                                            Icons.email,
+                                            color: Colors.white70,
+                                          ),
                                           fillColor: Colors.white10,
                                           filled: false,
                                           focusedBorder: OutlineInputBorder(
@@ -150,23 +162,16 @@ class _KayitState extends State<Kayit> {
                                               borderRadius:
                                                   BorderRadius.circular(30),
                                               borderSide: BorderSide(
-                                                  color: Colors.white38)),
-                                          hintText: "Mail Adresi",
+                                                color: Colors.white38,
+                                              )),
+                                          hintText: "Email",
                                           hintStyle:
                                               TextStyle(color: Colors.white38),
                                           focusColor: Colors.white),
-                                      validator: (value) {
-                                        if(value==null){
-                                          return "Lütfen geçerli bir mail girin";
-
-                                        }else
-                                          {
-                                            return null;
-                                          }
-                                      }
-
-
-                                      ),
+                                      validator: (value) =>
+                                          !EmailValidator.validate(value, true)
+                                              ? "Lütfen geçerli bir email girin"
+                                              : null),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.only(
@@ -361,3 +366,10 @@ class _KayitState extends State<Kayit> {
     );
   }
 }
+/*
+ validator: (value) =>
+                                        !EmailValidator.validate(value, true)
+                                            ? "Lütfen geçerli bir email girin"
+                                            : null),
+                                Padding(
+ */

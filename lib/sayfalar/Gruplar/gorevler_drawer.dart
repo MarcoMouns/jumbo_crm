@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:jumbo_crm/sayfalar/hosting_sureleri.dart';
-import 'package:jumbo_crm/sayfalar/hostinler.dart';
+import 'package:jumbo_crm/sayfalar/gorevler.dart';
 
 import 'package:jumbo_crm/sayfalar/onaylanan_musteriler.dart';
 
@@ -8,20 +7,18 @@ import 'package:jumbo_crm/sayfalar/onaylanmayan_musteriler.dart.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:jumbo_crm/sayfalar/projebazli_demo.dart';
-import 'package:jumbo_crm/sayfalar/sektorbazli_demo.dart';
+import 'package:jumbo_crm/sayfalar/projebazli_gorevler.dart';
 import 'package:jumbo_crm/widgetlar/widgetlar.dart';
 
-// ignore: must_be_immutable
-class Demolar extends StatefulWidget {
+class GorevlerDrawer extends StatefulWidget {
   //CardIslem({this.islemler}) : super();
   Islemler islemler;
 
   @override
-  _DemolarState createState() => _DemolarState();
+  _GorevlerDrawerState createState() => _GorevlerDrawerState();
 }
 
-class _DemolarState extends State<Demolar> {
+class _GorevlerDrawerState extends State<GorevlerDrawer> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
@@ -32,7 +29,7 @@ class _DemolarState extends State<Demolar> {
       key: _scaffoldKey,
       backgroundColor: Colors.cyanAccent,
       appBar: AppBar(
-        title: Text("Demolar"),
+        title: Text("Görevler"),
         actions: [
           PopupMenuButton<String>(
             onSelected: handleClick,
@@ -54,23 +51,17 @@ class _DemolarState extends State<Demolar> {
               children: [
                 Card(
                   child: ListTile(
-                    title: Text("Proje Bazlı Demo"),
+                    title: Text("Görevler"),
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ProjeBazliDemo()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Gorevler()));
                     },
                   ),
                 ),
                 Card(
                   child: ListTile(
-                    title: Text("Sektör Bazlı Demo"),
+                    title: Text("Proje Bazlı Görevler"),
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SektorBazliDemo()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ProjeBazliGorevler()));
                     },
                   ),
                 )

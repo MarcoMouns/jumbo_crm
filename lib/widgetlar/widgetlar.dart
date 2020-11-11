@@ -20,17 +20,26 @@ class DrawerWidget extends StatelessWidget {
             accountName: Text("Hasan Sancaktar"),
             accountEmail: Text("hasan@essentebilisim.com"),
             currentAccountPicture: CircleAvatar(
-              child: Text("HS",style: TextStyle(fontSize: 30),),
+              child: Text(
+                "HS",
+                style: TextStyle(fontSize: 30),
+              ),
               backgroundColor: Colors.white,
             ),
           ),
           ListTile(
             leading: Icon(Icons.dashboard_customize),
             title: Text("Gosterge Paneli"),
+            onTap: (){Navigator.pushReplacementNamed(context, '/panel');},
           ),
           ListTile(
             leading: Icon(Icons.calendar_today_outlined),
             title: Text("Takvim"),
+          ),
+          ListTile(
+            leading: Icon(Icons.backup_table_sharp),
+            title: Text("Görevler"),
+            onTap: (){Navigator.pushNamed(context, '/gorevler_liste');},
           ),
           Divider(
             color: Colors.black,
@@ -47,7 +56,15 @@ class DrawerWidget extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.people),
             title: Text("Müşteriler"),
-            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Musteriler()));},
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Musteriler()));
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.phone_in_talk),
+            title: Text("Görüşmeler"),
+            onTap: () {Navigator.pushNamed(context, '/gorusmeler');},
           ),
           // ListTile(
           //   leading: Icon(Icons.check_box_outlined),
@@ -63,7 +80,10 @@ class DrawerWidget extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.web),
             title: Text("Hostingler"),
-            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Hosting()));},
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Hosting()));
+            },
           ),
           Divider(
             color: Colors.black,
@@ -75,7 +95,15 @@ class DrawerWidget extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.account_tree),
             title: Text("Projelerim"),
-            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Projeler()));},
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Projeler()));
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.account_balance_sharp),
+            title: Text("Sektörler"),
+            onTap: () {Navigator.pushNamed(context, '/sektorler');},
           ),
           // ListTile(
           //   leading: Icon(Icons.check),
@@ -99,7 +127,10 @@ class DrawerWidget extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.person),
             title: Text("Kullanıcı Yönetimi"),
-            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>KullaniciYonetimi()));},
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => KullaniciYonetimi()));
+            },
           ),
           ListTile(
             leading: Icon(Icons.settings_applications),
@@ -108,7 +139,10 @@ class DrawerWidget extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.developer_mode),
             title: Text("Demo Havuzu"),
-            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Demolar()));},
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Demolar()));
+            },
           ),
           ListTile(
             leading: Icon(Icons.pending),

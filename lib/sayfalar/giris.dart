@@ -204,7 +204,7 @@ class _GirisState extends State<Giris> {
         _showScaffold("Oturum AÇILDI");
 
         Navigator.of(context).pushNamedAndRemoveUntil(
-            '/home', (Route<dynamic> route) => false);
+            '/panel', (Route<dynamic> route) => false);
       }
       if (!oturumAcmisKullanici.emailVerified) {
         setState(() {

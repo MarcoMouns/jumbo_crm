@@ -34,7 +34,7 @@ class _ProjelerState extends State<Projeler> {
       key: _scaffoldKey,
       backgroundColor: Colors.cyanAccent,
       appBar: AppBar(
-        title: Text("Anasayfa"),
+        title: Text("Projeler"),
         actions: [
           PopupMenuButton<String>(
             onSelected: handleClick,
@@ -56,7 +56,7 @@ class _ProjelerState extends State<Projeler> {
               children: [
                 Card(
                   child: ListTile(
-                    title: Text("Onaylanan Müşteriler"),
+                    title: Text("Onaylanan Projeler"),
                     onTap: () {
                       Navigator.push(
                           context,
@@ -67,7 +67,7 @@ class _ProjelerState extends State<Projeler> {
                 ),
                 Card(
                   child: ListTile(
-                    title: Text("Onaylanmayan Müşteriler"),
+                    title: Text("Onaylanmayan Projeler"),
                     onTap: () {
                       Navigator.push(
                           context,
@@ -78,7 +78,7 @@ class _ProjelerState extends State<Projeler> {
                 ),
                 Card(
                   child: ListTile(
-                    title: Text("Onaylanmayan Müşteriler"),
+                    title: Text("Tamamlanan Proje Tipi"),
                     onTap: () {
                       Navigator.push(
                           context,
@@ -89,7 +89,7 @@ class _ProjelerState extends State<Projeler> {
                 ),
                 Card(
                   child: ListTile(
-                    title: Text("Onaylanmayan Müşteriler"),
+                    title: Text("Devam Eden Proje Tipi"),
                     onTap: () {
                       Navigator.push(
                           context,

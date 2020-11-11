@@ -1,22 +1,28 @@
 import 'package:firebase_auth/firebase_auth.dart';
-
-import 'package:jumbo_crm/sayfalar/onaylanan_musteriler.dart';
-
+import 'package:jumbo_crm/sayfalar/devameden_projetipi.dart';
+import 'package:jumbo_crm/sayfalar/gorusmeler.dart';
+import 'package:jumbo_crm/sayfalar/hosting_sureleri.dart';
+import 'package:jumbo_crm/sayfalar/hostinler.dart';
+import 'package:jumbo_crm/sayfalar/onaylanan_projeler.dart';
 import 'package:jumbo_crm/sayfalar/onaylanmayan_musteriler.dart.dart';
-
+import 'package:jumbo_crm/sayfalar/onaylanmayan_projeler.dart';
+import 'package:jumbo_crm/sayfalar/projebazli_demo.dart';
+import 'package:jumbo_crm/sayfalar/projebazli_gorevler.dart';
+import 'package:jumbo_crm/sayfalar/sektorbazli_demo.dart';
+import 'package:jumbo_crm/sayfalar/tamamlanan_projetipi.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jumbo_crm/widgetlar/widgetlar.dart';
 
-class Musteriler extends StatefulWidget {
-  //CardIslem({this.islemler}) : super();
-  Islemler islemler;
+//import 'login_sayfa.dart';
 
+
+class Panel extends StatefulWidget {
   @override
-  _MusterilerState createState() => _MusterilerState();
+  _PanelState createState() => _PanelState();
 }
 
-class _MusterilerState extends State<Musteriler> {
+class _PanelState extends State<Panel> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
@@ -25,9 +31,9 @@ class _MusterilerState extends State<Musteriler> {
     return Scaffold(
       drawer: DrawerWidget(),
       key: _scaffoldKey,
-      backgroundColor: Colors.cyanAccent,
+    //  backgroundColor: Colors.cyanAccent,
       appBar: AppBar(
-        title: Text("Müşteriler"),
+        title: Text("Gösterge Paneli"),
         actions: [
           PopupMenuButton<String>(
             onSelected: handleClick,
@@ -42,33 +48,7 @@ class _MusterilerState extends State<Musteriler> {
           ),
         ],
       ),
-      body: ListView.builder(
-           itemCount: 1,
-          itemBuilder: (context, index) {
-        return Column(
-          children: [
-            Card(
-              child: ListTile(
-                title: Text("Onaylanan Müşteriler"),
-                onTap: () {
-                  Navigator.pushReplacementNamed(context, '/onaylanan_musteriler');
-                },
-              ),
-            ),
-            Card(
-              child: ListTile(
-                title: Text("Onaylanmayan Müşteriler"),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => OnaylanmayanMusteriler()));
-                },
-              ),
-            )
-          ],
-        );
-      }),
+      body: Center(child: Container(height: 125,width: 125,child: Center(child: Text("Dashboard")),color: Colors.pink,)),
     );
   }
 
@@ -115,46 +95,4 @@ class _MusterilerState extends State<Musteriler> {
   }
 }
 
-class Islemler {
-  final String title;
-  final IconData icon;
 
-  const Islemler({this.title, this.icon});
-}
-
-const List<Islemler> _islemler = const <Islemler>[
-  const Islemler(
-      title: 'Onaylanan Müşteriler', icon: Icons.add_circle_outline_outlined),
-  const Islemler(title: 'Onaylanmayan Müşteriler', icon: Icons.eight_k_plus),
-];
-
-class CardIslem extends StatefulWidget {
-  CardIslem({this.islemler}) : super();
-  Islemler islemler;
-
-  @override
-  _CardIslemState createState() => _CardIslemState();
-}
-
-class _CardIslemState extends State<CardIslem> {
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        Column(
-          //  mainAxisSize: MainAxisSize.max,
-          //crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Icon(
-              widget.islemler.icon,
-              // size: 35,
-            ),
-            Text(
-              widget.islemler.title,
-            ),
-          ],
-        )
-      ],
-    );
-  }
-}
