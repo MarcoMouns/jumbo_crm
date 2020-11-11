@@ -42,12 +42,56 @@ class _SektorBazliDemoState extends State<SektorBazliDemo> {
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   final _data = snapshot.data.data[index];
-                  return InkWell(
-                    onTap: () {},
-                    child: Card(
-                      child: ListTile(
-                        title: Text(_data.demoUrl),
-                        subtitle: Text(_data.sektorId),
+                  return Padding(
+
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          border:
+                          Border.all(color: Colors.redAccent, width: 5)),
+                      child: ExpansionTile(
+                        title: Column(
+                          children: [
+                            Text(_data.demoUserId.toString()??"null"),
+                            Divider(
+                              color: Colors.black,
+                            )
+                          ],
+                        ),
+                        children: [
+
+                          Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Text("Tarih: "),
+                                  Text(_data.tarih??"null")
+                                ],
+                              ),
+                              Divider(),
+                              Row(
+                                children: [
+                                  Text("Sektör: "),
+                                  Text(_data.sektorId.toString()??"null")
+                                ],
+                              ),
+
+                              Divider(),
+                              Row(
+                                children: [
+                                  Text("Url: "),
+                                  Expanded(
+                                    child: Text(_data.demoUrl ??
+                                        "null", maxLines: 3,
+                                    ),
+                                  )
+
+                                ],
+                              ),
+                            ],
+                          )
+                        ],
                       ),
                     ),
                   );

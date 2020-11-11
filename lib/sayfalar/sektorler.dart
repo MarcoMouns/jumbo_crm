@@ -31,11 +31,40 @@ class _SektorlerState extends State<Sektorler> {
               return ListView.builder(
                   itemCount: snapshot.data.length,
                   itemBuilder: (context, index) {
-                    return Card(
-                      child: ListTile(
-                        title: Text(snapshot.data[index].name),
-                        subtitle: Text(snapshot.data[index].id),
-                      ),
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border.all(
+                                  color: Colors.redAccent, width: 5)),
+                          child: ExpansionTile(
+                            title: Column(
+                              children: [
+                                Text(snapshot.data[index].name,
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                  ),
+                                ),
+                                Divider(
+                                  height: 20,
+                                  color: Colors.black,
+                                )
+                              ],
+                            ),
+                            children: [
+                              Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                     // Text("ID: "),
+                                     // Text(snapshot.data[index].id),
+                                    ],
+                                  ),
+                                ],
+                              )
+                            ],
+                          )),
                     );
                   });
             } else {

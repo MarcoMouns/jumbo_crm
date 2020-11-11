@@ -44,12 +44,55 @@ class _OnaylanmayanMusterilerState extends State<OnaylanmayanMusteriler> {
                 scrollDirection: Axis.vertical,
                 itemBuilder: (context, index) {
                   final _data = snapshot.data.data[index];
-                  return InkWell(
-                    onTap: () {},
-                    child: Card(
-                      child: ListTile(
-                        title: Text(_data.firmaAdi),
-                        subtitle: Text(_data.yetkiliKisi),
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          border:
+                          Border.all(color: Colors.redAccent, width: 5)),
+                      child: ExpansionTile(
+                        title: Column(
+                          children: [
+                            Text(_data.yetkiliKisi ?? "null"),
+                            Divider(
+                              color: Colors.black,
+                            )
+                          ],
+                        ),
+                        children: [
+                          Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Text("Firma adı: "),
+                                  Text(_data.firmaAdi ?? "null")
+                                ],
+                              ),
+                              Divider(),
+                              Row(
+                                children: [
+                                  Text("Sektör: "),
+                                  Text(_data.sektor ?? "null")
+                                ],
+                              ),
+                              Divider(),
+                              Row(
+                                children: [
+                                  Text("Telefon: "),
+                                  Text(_data.telefon ?? "null")
+                                ],
+                              ),
+                              Divider(),
+                              Row(
+                                children: [
+                                  Text("Yetkili telefon: "),
+                                  Text(_data.yetkiliTelefon ?? "null")
+                                ],
+                              ),
+                            ],
+                          )
+                        ],
                       ),
                     ),
                   );

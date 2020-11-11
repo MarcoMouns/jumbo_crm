@@ -43,13 +43,29 @@ class _OnaylanmayanProjelerState extends State<OnaylanmayanProjeler> {
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   final _data = snapshot.data.data[index];
-                  return InkWell(
-                    onTap: () {},
-                    child: Card(
-                      child: ListTile(
-                          //                      title: Text(_data.),
-                          //                      subtitle: Text(_data.platform),
-                          ),
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          border:
+                          Border.all(color: Colors.redAccent, width: 5)),
+                      child: ExpansionTile(
+                        title: Column(
+                          children: [
+                           // Text(_data.yetkiliKisi ?? "null"),
+                            Divider(
+                              color: Colors.black,
+                            )
+                          ],
+                        ),
+                        children: [
+                          Column(
+                            children: [
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   );
                 });

@@ -43,12 +43,67 @@ class _OnaylananProjelerState extends State<OnaylananProjeler> {
                 scrollDirection: Axis.vertical,
                 itemBuilder: (context, index) {
                   final _data = snapshot.data.data[index];
-                  return InkWell(
-                    onTap: () {},
-                    child: Card(
-                      child: ListTile(
-                        title: Text(_data.projeAdi),
-                        subtitle: Text(_data.baslangicTarihi),
+
+                  String sorumlu;
+                  if(_data.projeSorumlusu.index==1){
+                    sorumlu="Burak Emuce";
+                  }
+                  if(_data.projeSorumlusu.index==0){
+                    sorumlu="İrem Erdoğan";
+                  }
+                  if(_data.projeSorumlusu.index==2){
+                    sorumlu="İlker Tiryakioğlu";
+                  }
+                  if(_data.projeSorumlusu.index==3){
+                    sorumlu="Burak Nasır";
+                  }
+
+
+                  return Padding(
+
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          border:
+                          Border.all(color: Colors.redAccent, width: 5)),
+                      child: ExpansionTile(
+                        title: Column(
+                          children: [
+                            Text(_data.projeAdi??"null"),
+                            Divider(
+                              color: Colors.black,
+                            )
+                          ],
+                        ),
+                        children: [
+
+                          Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Text("Proje sorumlusu: "),
+                                  Text(sorumlu??"null")
+                                ],
+                              ),
+                              Divider(),
+                              Row(
+                                children: [
+                                  Text("Başlangıç tarihi: "),
+                                  Text(_data.baslangicTarihi??"null")
+                                ],
+                              ),
+
+                              Divider(),
+                              Row(
+                                children: [
+                                  Text("Durum: "),
+                                  Text(_data.durum??"null")
+                                ],
+                              ),
+                            ],
+                          )
+                        ],
                       ),
                     ),
                   );

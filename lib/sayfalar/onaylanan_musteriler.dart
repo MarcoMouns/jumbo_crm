@@ -34,7 +34,8 @@ class _OnaylananMusteriState extends State<OnaylananMusteri> {
   _futureMusteri(BuildContext context) {
     return FutureBuilder<DataModelOnaylananMusteriler>(
         future: _future,
-        builder: (context, AsyncSnapshot<DataModelOnaylananMusteriler> snapshot) {
+        builder:
+            (context, AsyncSnapshot<DataModelOnaylananMusteriler> snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(
                 itemCount: snapshot.data.data.length,
@@ -42,12 +43,55 @@ class _OnaylananMusteriState extends State<OnaylananMusteri> {
                 scrollDirection: Axis.vertical,
                 itemBuilder: (context, index) {
                   final _data = snapshot.data.data[index];
-                  return InkWell(
-                    onTap: () {},
-                    child: Card(
-                      child: ListTile(
-                        title: Text(_data.yetkiliKisi),
-                        subtitle: Text(_data.firmaAdi),
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          border:
+                              Border.all(color: Colors.redAccent, width: 5)),
+                      child: ExpansionTile(
+                        title: Column(
+                          children: [
+                            Text(_data.yetkiliKisi ?? "null"),
+                            Divider(
+                              color: Colors.black,
+                            )
+                          ],
+                        ),
+                        children: [
+                          Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Text("Firma adı: "),
+                                  Text(_data.firmaAdi ?? "null")
+                                ],
+                              ),
+                              Divider(),
+                              Row(
+                                children: [
+                                  Text("Sektör: "),
+                                  Text(_data.sektor ?? "null")
+                                ],
+                              ),
+                              Divider(),
+                              Row(
+                                children: [
+                                  Text("Telefon: "),
+                                  Text(_data.telefon ?? "null")
+                                ],
+                              ),
+                              Divider(),
+                              Row(
+                                children: [
+                                  Text("Yetkili telefon: "),
+                                  Text(_data.yetkiliTelefon ?? "null")
+                                ],
+                              ),
+                            ],
+                          )
+                        ],
                       ),
                     ),
                   );

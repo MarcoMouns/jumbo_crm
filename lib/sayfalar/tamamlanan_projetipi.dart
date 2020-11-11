@@ -42,12 +42,46 @@ class _TamamlananProjeTipiState extends State<TamamlananProjeTipi> {
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   final _data = snapshot.data.data[index];
-                  return InkWell(
-                    onTap: () {},
-                    child: Card(
-                      child: ListTile(
-                        title: Text(_data.projeSorumlusu),
-                        subtitle: Text(_data.projeAdi),
+                  return Padding(
+
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          border:
+                          Border.all(color: Colors.redAccent, width: 5)),
+                      child: ExpansionTile(
+                        title: Column(
+                          children: [
+                            Text(_data.projeAdi??"null"),
+                            Divider(
+                              color: Colors.black,
+                            )
+                          ],
+                        ),
+                        children: [
+
+                          Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Text("Proje sorumlusu: "),
+                                  Text(_data.projeSorumlusu??"null")
+                                ],
+                              ),
+                              Divider(),
+                              Row(
+                                children: [
+                                  Text("Başlangıç tarihi: "),
+                                  Text(_data.baslangicTarihi??"null")
+                                ],
+                              ),
+
+                              Divider(),
+
+                            ],
+                          )
+                        ],
                       ),
                     ),
                   );

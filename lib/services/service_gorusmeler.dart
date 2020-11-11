@@ -8,7 +8,8 @@ class ServiceGorusmeler{
   Future<DataModelGorusmeler> fetchData() async{
     final http.Response response = await http.get(Uri.encodeFull(ApiConstants.GORUSMELER),headers: {
       "Authorization": "${ApiConstants.TOKEN_VALUE}"
-    });
+    }
+    );
     if(response.statusCode==200)
       {
         final _jsonResponse = DataModelGorusmeler.fromJson(jsonDecode(response.body));

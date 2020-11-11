@@ -57,10 +57,10 @@ class Datum {
   String hizmet;
   String musteriId;
   String musteri;
-  Personel personel;
+  String personel;
   String kayitTarihi;
   String durum;
-  Sonuc sonuc;
+  String sonuc;
   String trash;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
@@ -68,10 +68,10 @@ class Datum {
     hizmet: json["Hizmet"] == null ? null : json["Hizmet"],
     musteriId: json["MusteriId"],
     musteri: json["Musteri"],
-    personel: personelValues.map[json["Personel"]],
+    personel: json["Personel"],
     kayitTarihi: json["KayitTarihi"],
     durum: json["Durum"],
-    sonuc: sonucValues.map[json["Sonuc"]],
+    sonuc: json["Sonuc"],
     trash: json["trash"],
   );
 
@@ -80,44 +80,10 @@ class Datum {
     "Hizmet": hizmet == null ? null : hizmet,
     "MusteriId": musteriId,
     "Musteri": musteri,
-    "Personel": personelValues.reverse[personel],
+    "Personel": personel,
     "KayitTarihi": kayitTarihi,
     "Durum": durum,
-    "Sonuc": sonucValues.reverse[sonuc],
+    "Sonuc": sonuc,
     "trash": trash,
   };
-}
-
-enum Personel { IREM_ERDOAN, ILKER_TIRYAKIOLU, UFUK_EN, EMPTY }
-
-final personelValues = EnumValues({
-  "": Personel.EMPTY,
-  "Ilker Tiryakioğlu": Personel.ILKER_TIRYAKIOLU,
-  "Irem Erdoğan": Personel.IREM_ERDOAN,
-  "Ufuk Şen": Personel.UFUK_EN
-});
-
-enum Sonuc { SAT_PTAL, TEKLIF_VERILDI, SAT_GEREKLETI, TEKLIF_VERILECEK, SAT_KAYDEDILDI, SAT_ERTELENDI }
-
-final sonucValues = EnumValues({
-  "Satış Ertelendi": Sonuc.SAT_ERTELENDI,
-  "Satış Gerçekleşti": Sonuc.SAT_GEREKLETI,
-  "Satış Kaydedildi": Sonuc.SAT_KAYDEDILDI,
-  "Satış İptal": Sonuc.SAT_PTAL,
-  "Teklif Verildi": Sonuc.TEKLIF_VERILDI,
-  "Teklif Verilecek": Sonuc.TEKLIF_VERILECEK
-});
-
-class EnumValues<T> {
-  Map<String, T> map;
-  Map<T, String> reverseMap;
-
-  EnumValues(this.map);
-
-  Map<T, String> get reverse {
-    if (reverseMap == null) {
-      reverseMap = map.map((k, v) => new MapEntry(v, k));
-    }
-    return reverseMap;
-  }
 }

@@ -30,7 +30,8 @@ class DrawerWidget extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.dashboard_customize),
             title: Text("Gosterge Paneli"),
-            onTap: (){Navigator.pushReplacementNamed(context, '/panel');},
+            onTap: (){ Navigator.of(context).pushNamedAndRemoveUntil(
+                '/panel', (Route<dynamic> route) => false);},
           ),
           ListTile(
             leading: Icon(Icons.calendar_today_outlined),

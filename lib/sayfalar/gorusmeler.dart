@@ -43,12 +43,65 @@ class _GorusmelerState extends State<Gorusmeler> {
                 itemCount: snapshot.data.data.length,
                 itemBuilder: (context, index) {
                   final _data = snapshot.data.data[index];
-                  return InkWell(
-                    onTap: () {},
-                    child: Card(
-                      child: ListTile(
-                        title: Text(_data.musteri),
-                        subtitle: Text(_data.hizmet),
+                  String durum;
+                  if(_data.durum=="4"){
+                    durum="Satış İptal";
+                  }
+                  if(_data.durum=="3"){
+                    durum="Satış Gerçekleşti";
+                  }
+                  if(_data.durum=="2"){
+                    durum="Satış Kaydedildi";
+                  }
+                  if(_data.durum=="1"){
+                    durum="null";
+                  }
+
+                  return Padding(
+
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          border:
+                          Border.all(color: Colors.redAccent, width: 5)),
+                      child: ExpansionTile(
+                        title: Column(
+                          children: [
+                            Text(_data.musteri??"null"),
+                            Divider(
+                              color: Colors.black,
+                            )
+                          ],
+                        ),
+                        children: [
+
+                          Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Text("Hizmet: "),
+                                  Text(_data.hizmet??"null")
+                                ],
+                              ),
+                              Divider(),
+                              Row(
+                                children: [
+                                  Text("Kayıt tarihi: "),
+                                  Text(_data.kayitTarihi??"null")
+                                ],
+                              ),
+
+                              Divider(),
+                              Row(
+                                children: [
+                                  Text("Sonuç: "),
+                                  Text(durum??"null")
+                                ],
+                              ),
+                            ],
+                          )
+                        ],
                       ),
                     ),
                   );
@@ -58,6 +111,9 @@ class _GorusmelerState extends State<Gorusmeler> {
               child: CircularProgressIndicator(),
             );
           }
-        });
+
+        }
+        );
+
   }
 }

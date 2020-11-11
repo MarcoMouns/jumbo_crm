@@ -16,7 +16,6 @@ import 'package:jumbo_crm/widgetlar/widgetlar.dart';
 
 //import 'login_sayfa.dart';
 
-
 class Panel extends StatefulWidget {
   @override
   _PanelState createState() => _PanelState();
@@ -31,7 +30,7 @@ class _PanelState extends State<Panel> {
     return Scaffold(
       drawer: DrawerWidget(),
       key: _scaffoldKey,
-    //  backgroundColor: Colors.cyanAccent,
+      //  backgroundColor: Colors.cyanAccent,
       appBar: AppBar(
         title: Text("Gösterge Paneli"),
         actions: [
@@ -48,7 +47,13 @@ class _PanelState extends State<Panel> {
           ),
         ],
       ),
-      body: Center(child: Container(height: 125,width: 125,child: Center(child: Text("Dashboard")),color: Colors.pink,)),
+      body: Center(
+          child: Container(
+        height: 125,
+        width: 125,
+        child: Center(child: Text("Dashboard")),
+        color: Colors.pink,
+      )),
     );
   }
 
@@ -94,5 +99,3 @@ class _PanelState extends State<Panel> {
     }
   }
 }
-
-

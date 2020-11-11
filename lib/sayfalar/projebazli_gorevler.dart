@@ -23,7 +23,7 @@ class _ProjeBazliGorevlerState extends State<ProjeBazliGorevler> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlueAccent,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("Proje Bazlı Görevler"),
       ),
@@ -42,12 +42,56 @@ class _ProjeBazliGorevlerState extends State<ProjeBazliGorevler> {
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   final _data = snapshot.data.data[index];
-                  return InkWell(
-                    onTap: () {},
-                    child: Card(
-                      child: ListTile(
-                        title: Text(_data.gorevEkleyen),
-                        subtitle: Text(_data.gorevSorumlusu),
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.greenAccent,
+                          border:
+                              Border.all(color: Colors.redAccent, width: 5)),
+                      child: ExpansionTile(
+                        title: Column(
+                          children: [
+                            Text(_data.gorev),
+                            Divider(
+                              color: Colors.black,
+                            )
+                          ],
+                        ),
+                        children: [
+                          Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Text("Görev adı: "),
+                                  Text(_data.projeAdi)
+                                ],
+                              ),
+                              Divider(),
+                              Row(
+                                children: [
+                                  Text("Görev sorumlusu: "),
+                                  Text(_data.gorevSorumlusuName)
+                                ],
+                              ),
+                              Divider(),
+                              Row(
+                                children: [
+                                  Text("Görev tarihi: "),
+                                  Text(_data.gorevTarihi)
+                                ],
+                              ),
+                              Divider(),
+                              Row(
+                                children: [
+                                  Text("Görevi Ekleyen: "),
+                                  Text(_data.gorevEkleyen)
+                                ],
+                              ),
+                              Divider(),
+                            ],
+                          )
+                        ],
                       ),
                     ),
                   );
