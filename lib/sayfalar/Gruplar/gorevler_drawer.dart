@@ -49,16 +49,16 @@ class _GorevlerDrawerState extends State<GorevlerDrawer> {
           itemBuilder: (context, index) {
             return Column(
               children: [
-                Card(
-                  child: ListTile(
+                Card(elevation: 25,shadowColor: Colors.red,
+                  child: ListTile(trailing: Icon(Icons.arrow_right,size: 50,),
                     title: Text("Görevler"),
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>Gorevler()));
                     },
                   ),
-                ),
-                Card(
-                  child: ListTile(
+                ),SizedBox(height: 20,),
+                Card(elevation: 25,shadowColor: Colors.red,
+                  child: ListTile(trailing: Icon(Icons.arrow_right,size: 50,),
                     title: Text("Proje Bazlı Görevler"),
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>ProjeBazliGorevler()));

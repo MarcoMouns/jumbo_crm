@@ -52,8 +52,8 @@ class _DemolarState extends State<Demolar> {
           itemBuilder: (context, index) {
             return Column(
               children: [
-                Card(
-                  child: ListTile(
+                Card(elevation: 25,shadowColor: Colors.red,
+                  child: ListTile(trailing: Icon(Icons.arrow_right,size: 50,),
                     title: Text("Proje Bazlı Demo"),
                     onTap: () {
                       Navigator.push(
@@ -62,9 +62,9 @@ class _DemolarState extends State<Demolar> {
                               builder: (context) => ProjeBazliDemo()));
                     },
                   ),
-                ),
-                Card(
-                  child: ListTile(
+                ),SizedBox(height: 20,),
+                Card(elevation: 25,shadowColor: Colors.red,
+                  child: ListTile(trailing: Icon(Icons.arrow_right,size: 50,),
                     title: Text("Sektör Bazlı Demo"),
                     onTap: () {
                       Navigator.push(

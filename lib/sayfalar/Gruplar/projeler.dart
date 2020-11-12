@@ -1,17 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:jumbo_crm/sayfalar/devameden_projetipi.dart';
-import 'package:jumbo_crm/sayfalar/hosting_sureleri.dart';
-import 'package:jumbo_crm/sayfalar/hostinler.dart';
 
-import 'package:jumbo_crm/sayfalar/onaylanan_musteriler.dart';
-import 'package:jumbo_crm/sayfalar/onaylanan_projeler.dart';
 
-import 'package:jumbo_crm/sayfalar/onaylanmayan_musteriler.dart.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:jumbo_crm/sayfalar/onaylanmayan_projeler.dart';
-import 'package:jumbo_crm/sayfalar/tamamlanan_projetipi.dart';
 import 'package:jumbo_crm/widgetlar/widgetlar.dart';
 
 // ignore: must_be_immutable
@@ -54,52 +46,54 @@ class _ProjelerState extends State<Projeler> {
           itemBuilder: (context, index) {
             return Column(
               children: [
-                Card(
+                Card(elevation: 25,shadowColor: Colors.red,
                   child: ListTile(
+                    trailing: Icon(
+                      Icons.arrow_right,
+                      size: 50,
+                    ),
                     title: Text("Onaylanan Projeler"),
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => OnaylananProjeler()));
+                      Navigator.pushNamed(context, "/onaylanan_projeler");
                     },
                   ),
-                ),
-                Card(
+                ),SizedBox(height: 20,),
+                Card(elevation: 25,shadowColor: Colors.red,
                   child: ListTile(
+                    trailing: Icon(
+                      Icons.arrow_right,
+                      size: 50,
+                    ),
                     title: Text("Onaylanmayan Projeler"),
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => OnaylanmayanProjeler()));
+                      Navigator.pushNamed(context, "/onaylanmayan_projeler");
                     },
                   ),
-                ),
-                Card(
+                ),SizedBox(height: 20,),
+                Card(elevation: 25,shadowColor: Colors.red,
                   child: ListTile(
+                    trailing: Icon(
+                      Icons.arrow_right,
+                      size: 50,
+                    ),
                     title: Text("Tamamlanan Proje Tipi"),
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => TamamlananProjeTipi()));
+                      Navigator.pushNamed(context, "/tamamlanan_projetipi");
                     },
                   ),
-                ),
-                Card(
+                ),SizedBox(height: 20,),
+                Card(elevation: 25,shadowColor: Colors.red,
                   child: ListTile(
+                    trailing: Icon(
+                      Icons.arrow_right,
+                      size: 50,
+                    ),
                     title: Text("Devam Eden Proje Tipi"),
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => DevamedenProjetipi()));
+                      Navigator.pushNamed(context, "/devameden_projetipi");
                     },
                   ),
                 )
-
-
               ],
             );
           }),
@@ -156,11 +150,6 @@ class Islemler {
   const Islemler({this.title, this.icon});
 }
 
-const List<Islemler> _islemler = const <Islemler>[
-  const Islemler(
-      title: 'Onaylanan Müşteriler', icon: Icons.add_circle_outline_outlined),
-  const Islemler(title: 'Onaylanmayan Müşteriler', icon: Icons.eight_k_plus),
-];
 
 class CardIslem extends StatefulWidget {
   CardIslem({this.islemler}) : super();

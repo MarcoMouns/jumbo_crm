@@ -50,8 +50,8 @@ class _HostingState extends State<Hosting> {
           itemBuilder: (context, index) {
             return Column(
               children: [
-                Card(
-                  child: ListTile(
+                Card(elevation: 25,shadowColor: Colors.red,
+                  child: ListTile(trailing: Icon(Icons.arrow_right,size: 50,),
                     title: Text("Hostingler"),
                     onTap: () {
                       Navigator.push(
@@ -60,9 +60,9 @@ class _HostingState extends State<Hosting> {
                               builder: (context) => Hostingler()));
                     },
                   ),
-                ),
-                Card(
-                  child: ListTile(
+                ),SizedBox(height: 20,),
+                Card(elevation: 25,shadowColor: Colors.red,
+                  child: ListTile(trailing: Icon(Icons.arrow_right,size: 50,),
                     title: Text("Süreli Hostingler"),
                     onTap: () {
                       Navigator.push(

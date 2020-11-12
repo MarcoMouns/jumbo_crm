@@ -47,16 +47,16 @@ class _MusterilerState extends State<Musteriler> {
           itemBuilder: (context, index) {
         return Column(
           children: [
-            Card(
-              child: ListTile(
+            Card(elevation: 25,shadowColor: Colors.red,
+              child: ListTile(trailing: Icon(Icons.arrow_right,size: 50,),
                 title: Text("Onaylanan Müşteriler"),
                 onTap: () {
                   Navigator.pushReplacementNamed(context, '/onaylanan_musteriler');
                 },
               ),
-            ),
-            Card(
-              child: ListTile(
+            ),SizedBox(height: 20,),
+            Card(elevation: 25,shadowColor: Colors.red,
+              child: ListTile(trailing: Icon(Icons.arrow_right,size: 50,),
                 title: Text("Onaylanmayan Müşteriler"),
                 onTap: () {
                   Navigator.push(
